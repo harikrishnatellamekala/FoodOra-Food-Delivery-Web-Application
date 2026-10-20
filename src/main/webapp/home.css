@@ -1,0 +1,1085 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --orange: #ff5a1f;
+    --orange2: #ff7a18;
+    --dark: #1c120e;
+    --cream: #fff9f3;
+    --muted: #746c66;
+    --border: #eadfd5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: var(--cream);
+    color: #241b17;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(255, 250, 245, 0.96);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(60, 35, 20, 0.08);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: auto;
+
+    min-height: 76px;
+
+    padding: 0 42px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 35px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 800;
+}
+
+.logo-mark {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--orange);
+    color: white;
+
+    font-size: 13px;
+
+    box-shadow: 0 8px 22px rgba(255, 90, 31, 0.22);
+}
+
+.logo-text {
+    font-size: 24px;
+    letter-spacing: -1px;
+}
+
+.logo-text span {
+    color: var(--orange);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    margin-left: 35px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #655b55;
+
+    position: relative;
+
+    padding: 29px 0;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    color: #211812;
+}
+
+.nav-links .active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 19px;
+
+    height: 2px;
+
+    background: var(--orange);
+
+    border-radius: 5px;
+}
+
+.nav-actions {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.login-link {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cart-button {
+    background: #251812;
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.cart-button:hover {
+    transform: translateY(-2px);
+}
+
+#cartCount {
+    display: inline-grid;
+    place-items: center;
+
+    min-width: 22px;
+    height: 22px;
+
+    margin-left: 6px;
+    padding: 0 5px;
+
+    border-radius: 20px;
+
+    background: var(--orange);
+
+    font-size: 11px;
+}
+
+
+/* ================= MOBILE NAV ================= */
+
+.mobile-menu {
+    display: none;
+
+    border: 0;
+
+    background: #251812;
+    color: white;
+
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+
+/* ================= HERO ================= */
+
+.hero-video-section {
+    padding: 18px 28px 0;
+}
+
+.hero-video-wrapper {
+    max-width: 1400px;
+
+    height: min(62vw, 650px);
+    min-height: 430px;
+
+    margin: auto;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    background: #22140e;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.video-placeholder {
+    position: absolute;
+
+    inset: 0;
+
+    display: grid;
+    place-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    background: #25150e;
+
+    z-index: -1;
+}
+
+.video-placeholder p {
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.video-placeholder span {
+    margin-top: 8px;
+
+    color: #d9c9bd;
+
+    font-size: 13px;
+}
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(18, 9, 5, 0.7),
+            rgba(18, 9, 5, 0.08) 65%,
+            rgba(18, 9, 5, 0.28)
+        );
+}
+
+.hero-copy {
+    position: absolute;
+
+    left: 7%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: white;
+
+    max-width: 560px;
+}
+
+.hero-copy p {
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    font-weight: 800;
+
+    margin-bottom: 16px;
+}
+
+.hero-copy h1 {
+    font-size: clamp(42px, 6vw, 82px);
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+}
+
+.hero-copy h1 span {
+    color: #ff6a25;
+}
+
+.hero-button {
+    display: inline-block;
+
+    margin-top: 28px;
+
+    background: var(--orange);
+    color: white;
+
+    padding: 14px 22px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition: 0.2s;
+}
+
+.hero-button:hover {
+    transform: translateY(-2px);
+
+    background: #ff4810;
+}
+
+
+/* ================= HOME CONTENT ================= */
+
+.home-content {
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 60px 42px 80px;
+}
+
+.food-section {
+    margin-bottom: 70px;
+}
+
+.section-heading {
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.section-label {
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    color: var(--orange);
+
+    margin-bottom: 7px;
+}
+
+.section-heading h2 {
+    font-size: 34px;
+
+    letter-spacing: -1.5px;
+}
+
+.section-controls {
+    display: flex;
+
+    gap: 8px;
+}
+
+.scroll-button {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition: 0.2s;
+}
+
+.scroll-button:hover {
+    background: #251812;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= FOOD TRACK ================= */
+
+.food-track-wrapper {
+    overflow: hidden;
+}
+
+.food-track {
+    display: flex;
+
+    gap: 18px;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    padding: 3px 2px 18px;
+
+    scrollbar-width: none;
+}
+
+.food-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ================= FOOD CARD ================= */
+
+.food-card {
+    flex: 0 0 250px;
+
+    background: white;
+
+    border: 1px solid rgba(76, 46, 29, 0.08);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        border-color 0.25s;
+}
+
+.food-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 40px rgba(55, 31, 17, 0.12);
+
+    border-color: #f2cdb8;
+}
+
+.food-image {
+    height: 185px;
+
+    overflow: hidden;
+
+    background: #eee5de;
+
+    position: relative;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.45s;
+}
+
+.food-card:hover .food-image img {
+    transform: scale(1.06);
+}
+
+.food-info {
+    padding: 17px;
+}
+
+.food-info h3 {
+    font-size: 17px;
+
+    letter-spacing: -0.3px;
+
+    margin-bottom: 7px;
+}
+
+.food-info p {
+    height: 38px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.55;
+}
+
+.food-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 14px;
+}
+
+.food-bottom strong {
+    font-size: 17px;
+}
+
+.add-button {
+    border: 0;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 12px;
+
+    background: #fff2ea;
+
+    color: var(--orange);
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.add-button:hover {
+    background: var(--orange);
+
+    color: white;
+
+    transform: scale(1.06);
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background: #20140f;
+
+    color: #eee4dc;
+
+    padding: 65px 42px 22px;
+}
+
+.footer-container {
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+.footer-brand p {
+    max-width: 330px;
+
+    margin-top: 18px;
+
+    color: #ad9c91;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+.footer-logo .logo-text {
+    color: white;
+}
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer-column h4 {
+    font-size: 13px;
+
+    color: white;
+
+    margin-bottom: 5px;
+}
+
+.footer-column a {
+    font-size: 13px;
+
+    color: #ad9c91;
+
+    transition: 0.2s;
+}
+
+.footer-column a:hover {
+    color: #ff7a18;
+}
+
+.social-links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+
+    margin: 50px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #8f7f75;
+
+    font-size: 11px;
+}
+
+
+/* ================= MODAL ================= */
+
+.food-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 300;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.food-modal.open {
+    display: flex;
+}
+
+.modal-backdrop {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(15, 8, 5, 0.72);
+
+    backdrop-filter: blur(5px);
+}
+
+.food-modal-card {
+    position: relative;
+
+    z-index: 1;
+
+    width: min(850px, 100%);
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: white;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.35);
+
+    animation: modalIn 0.22s ease;
+}
+
+.food-modal-card > img {
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 420px;
+
+    object-fit: cover;
+
+    background: #eee;
+}
+
+.modal-content {
+    padding: 42px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.modal-label {
+    font-size: 10px;
+
+    letter-spacing: 2.5px;
+
+    font-weight: 800;
+
+    color: var(--orange);
+
+    margin-bottom: 12px;
+}
+
+.modal-content h2 {
+    font-size: 34px;
+
+    line-height: 1.05;
+
+    margin-bottom: 14px;
+}
+
+.modal-content > p:not(.modal-label) {
+    color: #706760;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.modal-price {
+    font-size: 24px;
+
+    font-weight: 800;
+
+    margin: 25px 0;
+}
+
+.modal-actions {
+    display: flex;
+
+    gap: 10px;
+}
+
+.modal-add,
+.modal-cart {
+    border: 0;
+
+    border-radius: 12px;
+
+    padding: 13px 18px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    text-align: center;
+}
+
+.modal-add {
+    background: var(--orange);
+
+    color: white;
+}
+
+.modal-cart {
+    background: #251812;
+
+    color: white;
+}
+
+.modal-close {
+    position: absolute;
+
+    right: 15px;
+    top: 15px;
+
+    z-index: 2;
+
+    border: 0;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+/* ================= TOAST ================= */
+
+.toast {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 500;
+
+    background: #241710;
+
+    color: white;
+
+    padding: 13px 18px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    pointer-events: none;
+
+    transition: 0.25s;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ================= ANIMATION ================= */
+
+@keyframes modalIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.96)
+            translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 900px) {
+
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+
+        margin-left: auto;
+    }
+
+    .mobile-nav {
+        position: fixed;
+
+        z-index: 90;
+
+        top: 76px;
+
+        left: 12px;
+        right: 12px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+
+        padding: 10px;
+
+        box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.14);
+    }
+
+    .mobile-nav.open {
+        display: flex;
+
+        flex-direction: column;
+    }
+
+    .mobile-nav a {
+        padding: 14px;
+
+        border-radius: 10px;
+
+        font-weight: 700;
+
+        font-size: 14px;
+    }
+
+    .mobile-nav a:hover {
+        background: #fff2ea;
+
+        color: var(--orange);
+    }
+
+    .hero-video-section {
+        padding: 12px;
+    }
+
+    .hero-video-wrapper {
+        height: 62vh;
+
+        min-height: 450px;
+
+        border-radius: 22px;
+    }
+
+    .hero-copy {
+        left: 7%;
+        right: 7%;
+    }
+
+    .home-content {
+        padding: 45px 20px 60px;
+    }
+
+    .footer {
+        padding: 50px 20px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .hero-video-wrapper {
+        height: 520px;
+    }
+
+    .hero-copy h1 {
+        font-size: 47px;
+
+        letter-spacing: -2px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .food-card {
+        flex-basis: 225px;
+    }
+
+    .food-image {
+        height: 165px;
+    }
+
+    .food-modal-card {
+        grid-template-columns: 1fr;
+
+        max-height: 90vh;
+
+        overflow: auto;
+    }
+
+    .food-modal-card > img {
+        height: 250px;
+
+        min-height: 0;
+    }
+
+    .modal-content {
+        padding: 25px;
+    }
+
+    .modal-content h2 {
+        font-size: 28px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* Homepage: hide add-to-cart buttons */
+.food-card .add-button {
+    display: none !important;
+}
+
+/* Homepage: disable the food-details popup */
+.food-modal {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+

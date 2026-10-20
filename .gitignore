@@ -1,0 +1,13 @@
+# Generated build output
+build/
+bin/
+
+# Eclipse workspace metadata
+.metadata/
+
+# Log files
+*.log
+
+# Secrets and local configuration
+.env
+.env.*

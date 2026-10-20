@@ -1,0 +1,625 @@
+@charset "UTF-8";
+
+/* =====================================================
+   FOODORA - ACCOUNT PAGES (Login.jsp + Register.jsp)
+   Location: src/main/webapp/account.css
+   Background image: src/main/webapp/images/login.png
+===================================================== */
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+
+    font-family:
+        'Inter',
+        -apple-system,
+        'Segoe UI',
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: #120b08;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.auth-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   BACKGROUND IMAGE
+   (path is relative to account.css, which is in webapp/)
+===================================================== */
+
+.background-image {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("images/login.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+}
+
+
+/* Right side darker so the form stays readable,
+   left side keeps the image visible */
+
+.background-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.03) 0%,
+            rgba(0, 0, 0, 0.03) 40%,
+            rgba(15, 7, 4, 0.28) 58%,
+            rgba(12, 6, 4, 0.72) 78%,
+            rgba(10, 5, 3, 0.87) 100%
+        );
+}
+
+
+/* =====================================================
+   WRAPPER  (form sits on the RIGHT side)
+===================================================== */
+
+.auth-wrapper {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 40px 7%;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.auth-card {
+    width: 430px;
+    padding: 42px 42px 30px;
+
+    border-radius: 22px;
+
+    background: rgba(27, 15, 10, 0.80);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 125, 61, 0.45);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255, 255, 255, 0.03);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.auth-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.65),
+        0 0 35px rgba(255, 91, 32, 0.08);
+}
+
+
+/* Register card = wider + more compact (6 fields) */
+
+.auth-card.register-card {
+    width: 560px;
+    padding: 30px 38px 25px;
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 34px;
+}
+
+.register-card .brand {
+    margin-bottom: 22px;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg, #ff731f, #ff421d);
+
+    color: white;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    box-shadow: 0 7px 22px rgba(255, 84, 30, 0.30);
+}
+
+.brand-name {
+    font-size: 25px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.7px;
+}
+
+.brand-name span {
+    color: #ff6825;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.auth-heading {
+    margin-bottom: 30px;
+}
+
+.register-card .auth-heading {
+    margin-bottom: 20px;
+}
+
+.welcome-label {
+    color: #ff7432;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.auth-heading h1 {
+    color: white;
+
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+
+    margin-bottom: 9px;
+}
+
+.register-card .auth-heading h1 {
+    font-size: 31px;
+    letter-spacing: -0.8px;
+    margin-bottom: 7px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   MESSAGES  (error / success)
+===================================================== */
+
+.error-message,
+.success-message {
+    margin-bottom: 20px;
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+    font-size: 12.5px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.error-message {
+    color: #ffb4a3;
+    background: rgba(255, 70, 40, 0.12);
+    border: 1px solid rgba(255, 90, 60, 0.45);
+}
+
+.success-message {
+    color: #9ff0b8;
+    background: rgba(40, 200, 110, 0.12);
+    border: 1px solid rgba(60, 210, 120, 0.40);
+}
+
+
+/* =====================================================
+   FORM LAYOUT
+===================================================== */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.register-card .form-group {
+    margin-bottom: 15px;
+}
+
+/* two columns (register page) */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.90);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.register-card .form-group label {
+    margin-bottom: 7px;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-container input {
+    width: 100%;
+    height: 54px;
+
+    border-radius: 11px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.94);
+    color: #222;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    padding: 0 18px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.register-card .input-container input {
+    height: 46px;
+    border-radius: 10px;
+    font-size: 12.5px;
+    padding: 0 13px;
+}
+
+.input-container input:hover {
+    background: white;
+}
+
+.input-container input:focus {
+    background: white;
+    border-color: #ff6727;
+    box-shadow: 0 0 0 3px rgba(255, 103, 39, 0.14);
+}
+
+.input-container input::placeholder {
+    color: #999;
+}
+
+/* room for the Show/Hide button */
+
+.input-container input[type="password"],
+.input-container input.has-toggle {
+    padding-right: 62px;
+}
+
+
+/* =====================================================
+   PASSWORD SHOW / HIDE
+===================================================== */
+
+.password-toggle {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    height: 36px;
+    padding: 0 10px;
+
+    border: none;
+    background: transparent;
+
+    color: #777;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+    border-radius: 7px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.register-card .password-toggle {
+    height: 32px;
+    padding: 0 8px;
+    font-size: 10px;
+}
+
+.password-toggle:hover {
+    color: #ff5f24;
+    background: rgba(255, 95, 36, 0.08);
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.auth-button {
+    width: 100%;
+    height: 55px;
+
+    margin-top: 4px;
+
+    border: none;
+    border-radius: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    cursor: pointer;
+
+    background: linear-gradient(100deg, #ff7200, #ff4b23);
+    color: white;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+
+    box-shadow: 0 10px 25px rgba(255, 82, 25, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.register-card .auth-button {
+    height: 50px;
+    border-radius: 28px;
+    font-size: 13px;
+}
+
+.auth-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    box-shadow: 0 14px 30px rgba(255, 82, 25, 0.34);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+    box-shadow: 0 7px 18px rgba(255, 82, 25, 0.22);
+}
+
+.auth-button:disabled {
+    cursor: not-allowed;
+    filter: grayscale(0.4) brightness(0.9);
+    transform: none;
+}
+
+.button-arrow {
+    font-size: 19px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.auth-button:hover .button-arrow {
+    transform: translateX(4px);
+}
+
+
+/* =====================================================
+   SWITCH AREA  (Create account / Sign in link)
+===================================================== */
+
+.auth-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    margin-top: 26px;
+
+    font-size: 12px;
+}
+
+.register-card .auth-switch {
+    margin-top: 20px;
+    font-size: 11.5px;
+}
+
+.auth-switch span {
+    color: rgba(255, 255, 255, 0.48);
+}
+
+.auth-switch a {
+    color: #ff6a29;
+    font-weight: 800;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.auth-switch a:hover {
+    color: #ff9b70;
+}
+
+
+/* =====================================================
+   BACK LINK
+===================================================== */
+
+.secure-text {
+    display: block;
+    text-align: center;
+
+    margin-top: 22px;
+
+    color: rgba(255, 255, 255, 0.40);
+    text-decoration: none;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    transition: color 0.2s ease;
+}
+
+.register-card .secure-text {
+    margin-top: 16px;
+}
+
+.secure-text:hover {
+    color: #ff7a3d;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .auth-wrapper {
+        padding-right: 4%;
+    }
+
+    .auth-card {
+        width: 400px;
+    }
+
+    .auth-card.register-card {
+        width: 530px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .auth-wrapper {
+        justify-content: center;
+        padding: 22px 16px;
+    }
+
+    .background-image {
+        background-position: 35% center;
+    }
+
+    .auth-card,
+    .auth-card.register-card {
+        width: 100%;
+        max-width: 560px;
+        padding: 32px 24px 26px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 430px) {
+
+    .auth-wrapper {
+        padding: 14px;
+    }
+
+    .auth-card,
+    .auth-card.register-card {
+        padding: 28px 20px 24px;
+        border-radius: 18px;
+    }
+
+    .brand {
+        margin-bottom: 26px;
+    }
+
+    .auth-heading h1 {
+        font-size: 30px;
+    }
+
+    .register-card .auth-heading h1 {
+        font-size: 27px;
+    }
+}
