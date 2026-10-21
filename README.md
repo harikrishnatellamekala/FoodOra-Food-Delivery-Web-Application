@@ -147,7 +147,7 @@ Database name: `foodora`
 ### Setup
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/<your-username>/foodora.git
+   git clone https://github.com/harikrishnatellamekala/FoodOra-Food-Delivery-Web-Application.git
    ```
 2. **Create the database**
    ```sql
